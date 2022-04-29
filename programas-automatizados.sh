@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+echo "Removendo OpenJDK-11"
+sudo dnf remove java-11-openjdk-headless.x86_64
 
 echo "instalando o wget no FEDORA"
 echo
@@ -17,10 +20,8 @@ echo
 echo "Extraindo o pacote zipado"
 tar -xvzf eclipse-jee-2022-03-R-linux-gtk-x86_64.tar.gz
 
-##Configurando o eclipse .desktop
 echo "Configurando o arquivo .desktop para o eclipse"
-echo "
-[Desktop Entry]
+echo "[Desktop Entry]
 Comment=Java IDE
 Terminal=false
 Name=Eclipse
