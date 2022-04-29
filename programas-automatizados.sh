@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo "Removendo OpenJDK-11"
-sudo dnf remove java-11-openjdk-headless.x86_64
-
 echo "instalando o wget no FEDORA"
 echo
 sudo dnf install wget
