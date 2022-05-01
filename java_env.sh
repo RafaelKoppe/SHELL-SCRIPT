@@ -1,7 +1,6 @@
 #!/bin/bash
 
-JavaHomePath=$(readlink -ze /usr/bin/java | xargs -0 dirname)
-
+JavaHomePath=$(readlink -ze $(which java) | xargs -0 dirname | xargs -0 dirname)
 echo
 echo "JAVA_HOME=$JavaHomePath" >>~/.bashrc
 echo "export JAVA_HOME" >>~/.bashrc
