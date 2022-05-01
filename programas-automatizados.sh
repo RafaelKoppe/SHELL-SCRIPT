@@ -1,12 +1,28 @@
 #!/bin/bash
 
+distro=$(lsb_release -i | cut -f 2-)
+user=$(whoami)
+
 echo "instalando o wget no FEDORA"
 echo
 sudo dnf install wget
 echo
 
-echo "Instaland o OpenJDK 17 - JDK:"
-sudo dnf install java-latest-openjdk.x86_64
+echo "Instalando OpenJDK 17 - JDK:"
+
+	if [[ $distro == "Fedora" ]]; then
+         sudo dnf install java-$versao-openjdk*.x86_64
+         exit
+
+   	elif [[ $distro == "Linuxmint" ]] || [[ $distro == "Ubuntu" ]] || [[ $distro == "Debian" ]]; then
+      	 sudo apt install openjdk-$versao*
+      	 exit
+
+         else
+         echo "Sua distro não é compátivel com esse script"
+         echo "Encerrando"
+         exit
+        fi
 
 echo "configurar a variavel de ambiente"
 sudo update-alternatives --config java
